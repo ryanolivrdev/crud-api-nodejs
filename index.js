@@ -18,13 +18,13 @@ let users = [
   },
 ];
 
-app.route("/api").get((req, res) =>
+app.route("/").get((req, res) =>
   res.json({
     users,
   })
 );
 
-app.route("/api/:id").get((req, res) => {
+app.route("/:id").get((req, res) => {
   const userId = req.params.id;
 
   const user = users.find((user) => Number(user.id) === Number(userId));
@@ -36,7 +36,7 @@ app.route("/api/:id").get((req, res) => {
   res.json(user);
 });
 
-app.route("/api/createperson").post((req, res) => {
+app.route("/createperson").post((req, res) => {
   const lastId = users[users.length - 1].id;
 
   users.push({
@@ -49,7 +49,7 @@ app.route("/api/createperson").post((req, res) => {
   res.status(201).json("Saved user");
 });
 
-app.route("/api/update/:id").put((req, res) => {
+app.route("/update/:id").put((req, res) => {
   const userId = req.params.id;
 
   const user = users.find((user) => Number(user.id) === Number(userId));
@@ -75,7 +75,7 @@ app.route("/api/update/:id").put((req, res) => {
   res.status(201).json("Updated user");
 });
 
-app.route("/api/update/:id/:patch").patch((req, res) => {
+app.route("/update/:id/:patch").patch((req, res) => {
   const userId = req.params.id;
   let patch = req.params.patch;
 
@@ -120,7 +120,7 @@ app.route("/api/update/:id/:patch").patch((req, res) => {
   res.status(201).json("Updated user");
 });
 
-app.route("/api/delete/:id").delete((req, res) => {
+app.route("/delete/:id").delete((req, res) => {
   const userId = req.params.id;
 
   users = users.filter((user) => Number(user.id) !== Number(userId));
