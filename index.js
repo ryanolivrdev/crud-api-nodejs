@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.listen(5500, () => console.log("Rodando na porta 5500"));
+app.listen(process.env.PORT || 5500, () => console.log(`Serviço iniciado em ${new Date()}`));
 
 app.use(cors());
 
