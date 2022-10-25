@@ -6,6 +6,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsnd --exit-child src/server.ts"
+    "start": "vercel dev",
+    "deploy" : "vercel deploy --prod"
   },
   "keywords": [],
   "author": "Ryan Oliveira",
