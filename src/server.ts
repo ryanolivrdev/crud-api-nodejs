@@ -1,5 +1,5 @@
-const express = require("express");
-const cors = require("cors");
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
@@ -18,7 +18,7 @@ let users = [
   },
 ];
 
-app.route("/").get((req, res) =>
+app.route("/").get((req , res) =>
   res.json({
     users,
   })
@@ -85,7 +85,7 @@ app.route("/update/:id/:patch").patch((req, res) => {
     return res.status(404).json("User not found!");
   }
 
-  let updatedUser
+  let updatedUser: any
 
   switch (patch) {
     case "name":
